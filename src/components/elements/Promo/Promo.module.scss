@@ -1,0 +1,77 @@
+@import '../../../scss/vars.scss';
+
+.Promo{
+  width: 100%;
+  background-color: $dark-bg;
+  border-radius: 30px;
+  margin-bottom: 50px;
+  color: $text-color;
+  padding: 90px 50px 80px 80px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+
+  &Descr{
+    z-index: 2;
+  }
+
+  &Title{
+    max-width: 530px;
+    font-size: 44px;
+    line-height: 52px;
+    margin-bottom: 60px;
+  }
+
+  &Info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 110px;
+  }
+
+  &InfoItem + .PromoInfoItem {
+    padding-left: 50px;
+    &::before{
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: #e2e2e2;
+      border-radius: 50%;
+      left: 23px;
+    }
+  }
+
+  &InfoItem{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &InfoImg{
+    width: 34px;
+    height: 26px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-right: 10px;
+  }
+
+  &Link{
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background-color: $accent-color;
+  }
+
+  &SliderImg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 880px;
+    object-fit: cover;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+    z-index: 1;
+  }
+}

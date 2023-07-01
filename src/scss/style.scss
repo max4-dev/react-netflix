@@ -1,0 +1,50 @@
+@import './reset.scss';
+@import './vars.scss';
+
+body{
+  background-color: $bg-color;
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+.App{
+  display: flex;
+  align-items: start;
+}
+
+.container {
+  max-width: 1915px;
+  width: 100%;
+  padding: 0 65px;
+  margin: 0 auto;
+}
+
+.title{
+  font-size: 26px;
+  line-height: 31px;
+  font-weight: bold;
+  display: inline-block;
+  max-width: 250px;
+}
+
+.swiper{
+  overflow: visible !important;
+}
+
+.swiper-scrollbar {
+  width: 250px !important;
+  background-color: $border-color !important;
+  top: -66px !important;
+  left: 260px !important;
+}
+
+.swiper-scrollbar-drag{
+  background-color: $accent-color !important;
+  height: 25px !important;
+  width: 50px !important;
+  top: -10px !important;
+}
+
+.swiper-wrapper{
+  padding-bottom: 30px;
+}

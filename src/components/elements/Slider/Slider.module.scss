@@ -1,0 +1,10 @@
+@import '../../../scss/vars.scss';
+
+.Slider{
+  position: relative;
+  color: $text-color;
+  padding-bottom: 60px;
+  &Box{
+    padding-top: 50px;
+  }
+}

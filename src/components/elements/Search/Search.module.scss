@@ -1,0 +1,40 @@
+@import '../../../scss/vars.scss';
+
+.Search{
+  position: relative;
+  i{
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-45%);
+    color: $passive-color;
+    font-size: 31px;
+  }
+}
+
+.SearchInput{
+  background-color: transparent;
+  border: 1px solid $border-color;
+  min-width: 565px;
+  height: 75px;
+  border-radius: 30px;
+  padding: 0 70px 0 105px;
+  color: $text-color;
+  font-size: 19px;
+}
+
+.SearchButton{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 15px;
+  @extend %clear-btn;
+  transform: translateY(-50%);
+  top: 50%;
+  i{
+    right: 0;
+    left: 0;
+    font-size: 38px;
+    transform: translateY(-50%);
+  }
+}
