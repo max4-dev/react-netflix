@@ -1,0 +1,143 @@
+@import './reset.scss';
+@import './vars.scss';
+@import 'https://unpkg.com/boxicons@latest/css/boxicons.min.css';
+
+body{
+  background-color: $bg-color;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.title{
+  font-size: 26px;
+  line-height: 31px;
+  font-weight: bold;
+  display: inline-block;
+  max-width: 250px;
+}
+
+.swiper{
+  overflow: visible !important;
+}
+
+.swiper-scrollbar {
+  width: 250px !important;
+  background-color: $border-color !important;
+  top: -66px !important;
+  left: 260px !important;
+}
+
+.swiper-scrollbar-drag{
+  background-color: $accent-color !important;
+  height: 25px !important;
+  width: 50px !important;
+  top: -10px !important;
+}
+
+.swiper-wrapper{
+  padding-bottom: 30px;
+}
+
+//  Login/Signup
+
+.Login{
+  max-width: 600px;
+  width: 100%;
+  margin: 80px auto 0;
+  background-color: $card-color;
+  padding: 60px 40px;
+  border-radius: 30px;
+  color: $text-color;
+
+  &Title{
+    font-size: 31px;
+    position: relative;
+    padding-bottom: 3px;
+    margin-bottom: 25px;
+    a{
+      font-size: 19px;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      width: 35px;
+      height: 3px;
+      background-color: $accent-color;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &Label{
+    display: block;
+    position: relative;
+    span{
+      position: absolute;
+      top: 5px;
+      left: 15px;
+      padding: 5px;
+      background-color: $bg-color;
+      display: inline-block;
+      border-radius: 10px;
+      transition: all .3s;
+    }
+  }
+
+  &Label + .LoginLabel{
+    margin-top: 25px;
+  }
+
+  &Input{
+    width: 100%;
+    height: 40px;
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+    border-radius: 10px;
+    padding: 0 10px;
+  }
+
+  &Input:focus + span{
+    top: -16px;
+  }
+
+  &InputFocus + span{
+    top: -16px;
+  }
+
+  &Btn {
+    display: inline-block;
+    margin-top: 35px;
+    background-color: $accent-color;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: $text-color;
+    border: none  ;
+  }
+
+  p {
+    color: $accent-color;
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+}
+
+.cleanBtn{
+  display: inline-block;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: $text-color;
+}
+
+.layoutBox {
+  display: flex;
+}

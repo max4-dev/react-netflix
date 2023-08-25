@@ -1,0 +1,28 @@
+@import '@/scss/vars.scss';
+
+.Film {
+  color: $text-color;
+  width: 100%;
+  &Inner {
+    padding-left: 40px;
+    padding-top: 40px;
+    max-width: 1200px;
+    overflow: hidden;
+  }
+  &Title {
+    font-size: 32px;
+  }
+  &Descr {
+    display: block;
+    background-color: $card-color;
+    padding: 15px 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+  }
+  &Img {
+    border-radius: 10px;
+    max-width: 350px;
+  }
+}

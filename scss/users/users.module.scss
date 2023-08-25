@@ -1,0 +1,23 @@
+@import '../vars.scss';
+
+.userList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0 40px 40px;
+  gap: 15px;
+  overflow-y: scroll;
+}
+
+.userCard {
+  display: block;
+  width: 300px;
+  height: 100%;
+  max-height: 150px;
+  padding: 10px 25px;
+  background-color: $card-color;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

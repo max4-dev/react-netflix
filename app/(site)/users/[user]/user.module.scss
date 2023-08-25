@@ -1,0 +1,27 @@
+@import '@/scss/vars.scss';
+
+.user {
+  width: 100%;
+  padding: 20px 25px;
+}
+
+.userCard {
+  background-color: $card-color;
+  padding: 25px 35px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 19px;
+  opacity: .7;
+}
