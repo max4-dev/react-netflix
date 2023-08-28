@@ -4,34 +4,27 @@ import { FC, useEffect, useState } from 'react';
 import styles from './FilmCard.module.scss';
 import { tagsFormated } from '@/utils/TagsFormated';
 import Link from 'next/link';
+import { fromJsonToJs } from '@/utils/fromJsonToJs';
 
 export interface FilmCardProps {
-  imageUrl: string,
+  images: string,
   title: string,
   tags: string[],
   id: number
 }
 
-const FilmCard: FC<FilmCardProps> = ({title, tags, id}) => {
-  // const tagsStr = JSON.stringify(tags)
-  // const tagsArr = JSON.parse(tagsStr);
-  // console.log(typeof tagsArr);
-  const [tagsArr, setTagsArr] = useState([])
+const FilmCard: FC<FilmCardProps> = ({title, tags, id, images}) => {
+  const [tagsArr, setTagsArr] = useState([]);
+  const imageUrl = fromJsonToJs(images);
 
   useEffect(() => {
-    const tagsArray = tags.replace(/[\[\]']/g, '').split(',').map(tag => tag.trim());
+    const tagsArray = fromJsonToJs(tags);
     setTagsArr(tagsArray);
   }, []);
-
-  console.log(tagsArr);
-  
-  
-  
-  
   
   return ( 
     <div className={styles.FilmCard}>
-      {/* <img className={styles.FilmCardImg} src={film.imageUrl} alt="" /> */}
+      <img className={styles.FilmCardImg} src={imageUrl[0]} alt="" />
       <h6 className={styles.FilmCardTitle}><Link href={`/film/${id}`}>{title}</Link></h6>
       <p className={styles.FilmCardTags}>
         {tagsFormated(tagsArr)}

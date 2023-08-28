@@ -6,15 +6,18 @@ import "swiper/css";
 import ReactPlayer from 'react-player'
 import styles from './FilmPage.module.scss';
 import video from '@/assets/video/wither.mp4'
+import { fromJsonToJs } from '@/utils/fromJsonToJs';
+import Flag from '../UI/Flag/Flag';
 // import video from './Wither.webm'
 
 
-const FilmPage = ({title, descr, filmLink, images}
+const FilmPage = ({title, descr, filmLink, images, language}
   ) => 
   {
     // console.log(video);
     
-  const imagesArray = images.replace(/[\[\]']/g, '').split(', ')
+  const imagesArray = fromJsonToJs(images);
+
   return (
     <div className={styles.Film}>
       <div className="container">
@@ -22,6 +25,10 @@ const FilmPage = ({title, descr, filmLink, images}
           <h3 className={styles.FilmTitle}>{title}</h3>
           <p className={styles.FilmDescr}>
             {descr}
+            <div>
+              <Flag lang={language} />
+              <span>{language}</span>
+            </div>
           </p>
           <div>
             <div className={styles.FilmSlider}>

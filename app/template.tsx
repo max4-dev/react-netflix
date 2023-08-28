@@ -3,7 +3,7 @@
 import { useSelector } from 'react-redux';
 import { selectIsAuth } from '@/redux/auth/slice';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/redux/store';
 import '@/scss/style.scss';
 
@@ -14,6 +14,7 @@ export default function RootTemplate({
 }) {
   const isAuth = useSelector(selectIsAuth);
   const router = useRouter();
+  const path = usePathname();
   const dispatch = useAppDispatch();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -21,6 +22,9 @@ export default function RootTemplate({
   }, [])
 
   useEffect(() => {
+
+    console.log(isAuth);
+    
     if (!isAuth) {
       // router.push('/login');
     }

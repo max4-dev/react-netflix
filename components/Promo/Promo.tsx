@@ -1,12 +1,9 @@
 'use client';
 
-import { FC, SetStateAction, useRef, useState } from 'react';
+import { FC, SetStateAction, useEffect, useRef, useState } from 'react';
 import styles from './Promo.module.scss';
 import { langs } from '@/api/data';
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -14,18 +11,25 @@ import "swiper/css/thumbs";
 import { EffectFade, FreeMode, Navigation, Pagination, Thumbs } from 'swiper';
 import SwiperClass from 'swiper/types/swiper-class';
 import Flag from '../UI/Flag/Flag';
+import { fromJsonToJs } from '@/utils/fromJsonToJs';
+import Link from 'next/link';
 
 
 interface PromoProps {
   title: string;
   raiting: string;
   lang: string;
-  images: string[];
+  images: string;
 }
 
-const Promo: FC<PromoProps> = ({title, raiting, language, images}) => {
+const Promo: FC<PromoProps> = ({title, raiting, language, images, id}) => {
   const swiper = useRef<SwiperClass>(null!);
- const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>();
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass>();
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    setImageUrl(fromJsonToJs(images))
+  }, [images]);
   
   return ( 
     <div className={styles.Promo}>
@@ -33,17 +37,17 @@ const Promo: FC<PromoProps> = ({title, raiting, language, images}) => {
         <h2 className={styles.PromoTitle}>{title}</h2>
         <ul className={styles.PromoInfo}>
           <li className={styles.PromoInfoItem}>
-            {/* <img className={styles.PromoInfoImg} src="images/imdb.png" alt="" /> */}
+            <img className={styles.PromoInfoImg} src="images/imdb.png" alt="" />
             <span>{raiting}</span>
           </li>
           <li className={styles.PromoInfoItem}>
-            {/* <Flag lang={langs[lang][1]} /> */}
+            <Flag lang={language} />
             <span>{language}</span>
           </li>
         </ul>
-        <a className={styles.PromoLink} href="#">
+        <Link className={styles.PromoLink} href={`/film/${id}`}>
           Watch
-        </a>
+        </Link>
       </div>
       <div className={styles.PromoSlider}>
         {/* <Swiper
@@ -55,7 +59,7 @@ const Promo: FC<PromoProps> = ({title, raiting, language, images}) => {
       >
         <SwiperSlide>
           {images.map((img) => (
-          <SwiperSlide>
+            <SwiperSlide>
             <img className={styles.PromoSliderImg} src={img} alt="" />
           </SwiperSlide>
         ))}
@@ -92,7 +96,7 @@ const Promo: FC<PromoProps> = ({title, raiting, language, images}) => {
           </SwiperSlide>
           ))}
         </Swiper> */}
-        {/* <img className={styles.PromoSliderImg} src={images[0]} alt="" /> */}
+        {imageUrl && <img className={styles.PromoSliderImg} src={imageUrl[0]} alt="" />}
       </div>
     </div>
   );

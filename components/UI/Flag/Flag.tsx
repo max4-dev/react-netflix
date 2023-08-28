@@ -3,7 +3,7 @@ import { FlagProps } from './Flag.props';
 
 const Flag = ({lang}: FlagProps) => {
   return ( 
-    <img className={styles.flag} src={lang} />
+    <img className={styles.flag} src={`images/${lang}.png`} />
    );
 }
  
